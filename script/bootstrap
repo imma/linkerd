@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+function bootstrap {
+  local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local ver_linkerd='0.2.0'
+  local url_linkerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_linkerd}/linkerd-${ver_linkerd}.tgz"
+  local fnm_linkerd="linkerd-${ver_linkerd}.tgz"
+
+  cache curl "$fnm_linkerd" "$url_linkerd"
+
+  mkdir -p "$shome/vendor"
+  (cd "$shome/vendor" && tar xvfz "${BASEBOX_CACHE}/curl/$fnm_linkerd")
+  ln -nfs "linkerd-${ver_linkerd}" "$shome/vendor/linkerd"
+}
+
+bootstrap
