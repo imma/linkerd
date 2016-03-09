@@ -4,7 +4,8 @@ function server {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  exec linkerd "$shome/vendor/linkerd/config/linkerd.yaml"
+  cd "$shome/vendor/linkerd"
+  exec linkerd "config/linkerd.yaml"
 }
 
 server "$@"
