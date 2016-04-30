@@ -4,7 +4,7 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local ver_linkerd='0.3.1'
+  local ver_linkerd='0.4.0'
   local url_linkerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_linkerd}/linkerd-${ver_linkerd}.tgz"
   local fnm_linkerd="linkerd-${ver_linkerd}.tgz"
 

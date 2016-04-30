@@ -4,7 +4,7 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if [[ -f "$shome/vendor/linkerd/linkerd-0.3.1-exec" ]]; then
+  if [[ -f "$shome/vendor/linkerd/linkerd-0.4.0-exec" ]]; then
     return 1
   fi
 
