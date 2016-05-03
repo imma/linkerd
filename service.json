@@ -1,6 +1,6 @@
 {
   "services": {
-    "squid": {
+    "linkerd": {
       "run": "$BLOCK_PATH/linkerd/script/server",
       "env": {
         "NAME": "linkerd"
