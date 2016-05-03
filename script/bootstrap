@@ -13,6 +13,7 @@ function bootstrap {
   mkdir -p "$shome/vendor"
   (cd "$shome/vendor" && tar xvfz "${BASEBOX_CACHE}/curl/$fnm_linkerd")
   ln -nfs "linkerd-${ver_linkerd}" "$shome/vendor/linkerd"
+  ln -nfs "../vendor/linkerd/linkerd-${ver_linkerd}-exec" "$shome/bin/linkerd"
 }
 
 bootstrap
