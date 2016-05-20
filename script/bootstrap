@@ -5,15 +5,25 @@ function bootstrap {
   source "$shome/script/profile"
 
   local ver_linkerd='0.5.0'
-  local url_linkerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_linkerd}/linkerd-${ver_linkerd}.tgz"
-  local fnm_linkerd="linkerd-${ver_linkerd}.tgz"
+  local fnm_linkerd="linkerd-${ver_linkerd}-exec"
+  local url_linkerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_linkerd}/$fnm_linkerd"
+
+  local ver_namerd='0.5.0'
+  local fnm_namerd="namerd-${ver_namerd}-exec"
+  local url_namerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_namerd}/$fnm_namerd"
 
   cache curl "$fnm_linkerd" "$url_linkerd"
+  cache curl "$fnm_namerd" "$url_namerd"
 
   mkdir -p "$shome/vendor"
-  (cd "$shome/vendor" && tar xvfz "${BASEBOX_CACHE}/curl/$fnm_linkerd")
-  ln -nfs "linkerd-${ver_linkerd}" "$shome/vendor/linkerd"
-  ln -nfs "../vendor/linkerd/linkerd-${ver_linkerd}-exec" "$shome/bin/linkerd"
+
+  rsync -ia "${BASEBOX_CACHE}/curl/$fnm_linkerd" "$shome/vendor/"
+  chmod 755 "$shome/vendor/$fnm_linkerd"
+  ln -nfs "../vendor/$fnm_linkerd" "$shome/bin/linkerd"
+
+  rsync -ia "${BASEBOX_CACHE}/curl/$fnm_namerd" "$shome/vendor/"
+  chmod 755 "$shome/vendor/$fnm_namerd"
+  ln -nfs "../vendor/$fnm_namerd" "$shome/bin/namerd"
 }
 
 bootstrap
