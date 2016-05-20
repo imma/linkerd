@@ -5,7 +5,11 @@ function version {
   source "$shome/script/profile"
 
   local ver_linkerd="$(basename "$(readlink "$shome/bin/linkerd")" | cut -d- -f2)"
-  jq -n --arg linkerd "$ver_linkerd" '{linkerd: $linkerd}'
+  local ver_namerd="$(basename "$(readlink "$shome/bin/namerd")" | cut -d- -f2)"
+  jq -n \
+    --arg linkerd "$ver_linkerd" \
+    --arg namerd "$ver_namerd" \
+    '{linkerd: $linkerd, namerd: $namerd}'
 }
 
 version "$@"
