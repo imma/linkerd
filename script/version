@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function version {
+  local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local ver_linkerd="$(basename "$(readlink "$shome/bin/linkerd")" | cut -d- -f2)"
+  jq -n --arg linkerd "$ver_linkerd" '{linkerd: $linkerd}'
+}
+
+version "$@"
