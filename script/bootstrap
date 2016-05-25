@@ -4,11 +4,11 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local ver_linkerd='0.5.0'
+  local ver_linkerd='0.6.0'
   local fnm_linkerd="linkerd-${ver_linkerd}-exec"
   local url_linkerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_linkerd}/$fnm_linkerd"
 
-  local ver_namerd='0.5.0'
+  local ver_namerd='0.6.0'
   local fnm_namerd="namerd-${ver_namerd}-exec"
   local url_namerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_namerd}/$fnm_namerd"
 
