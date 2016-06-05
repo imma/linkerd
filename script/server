@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function server {
-  local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+  local shome="${_linkerd_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   source "$shome/script/profile"
 
   cd "$shome/vendor/linkerd"
