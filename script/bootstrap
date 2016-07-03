@@ -5,11 +5,11 @@ function bootstrap {
   source "$shome/script/profile"
 
   local ver_linkerd='0.6.0'
-  local fnm_linkerd="linkerd-${ver_linkerd}-exec"
+  local fnm_linkerd="linkerd-${ver_linkerd}-exec-$(uname -s)"
   local url_linkerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_linkerd}/$fnm_linkerd"
 
   local ver_namerd='0.6.0'
-  local fnm_namerd="namerd-${ver_namerd}-exec"
+  local fnm_namerd="namerd-${ver_namerd}-exec-$(uname -s)"
   local url_namerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_namerd}/$fnm_namerd"
 
   cache curl "$fnm_linkerd" "$url_linkerd"
