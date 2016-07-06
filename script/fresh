@@ -4,8 +4,8 @@ function main {
   local shome="${_linkerd_home:-"$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"}"
   source "$shome/script/profile"
 
-  if [[ -f "$shome/vendor/linkerd-0.6.0-exec" ]]; then
-    if [[ -f "$shome/vendor/namerd-0.6.0-exec" ]]; then
+  if [[ -x "$(which linkerd 2>&- || true)" ]]; then
+    if [[ -x "$(which namerd 2>&- || true)" ]]; then
       return 0
     fi
   fi
