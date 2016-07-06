@@ -4,13 +4,11 @@ function bootstrap {
   local shome="${_linkerd_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   source "$shome/script/profile"
 
-  local ver_linkerd='0.6.0'
-  local fnm_linkerd="linkerd-${ver_linkerd}-exec-$(uname -s)"
-  local url_linkerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_linkerd}/$fnm_linkerd"
+  local fnm_linkerd="linkerd-${LINKERD_VERSION}-exec-$(uname -s)"
+  local url_linkerd="https://github.com/BuoyantIO/linkerd/releases/download/${LINKERD_VERSION}/$fnm_linkerd"
 
-  local ver_namerd='0.6.0'
-  local fnm_namerd="namerd-${ver_namerd}-exec-$(uname -s)"
-  local url_namerd="https://github.com/BuoyantIO/linkerd/releases/download/${ver_namerd}/$fnm_namerd"
+  local fnm_namerd="namerd-${NAMERD_VERSION}-exec-$(uname -s)"
+  local url_namerd="https://github.com/BuoyantIO/linkerd/releases/download/${NAMERD_VERSION}/$fnm_namerd"
 
   cache curl "$fnm_linkerd" "$url_linkerd"
   cache curl "$fnm_namerd" "$url_namerd"

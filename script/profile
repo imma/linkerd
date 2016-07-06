@@ -3,6 +3,9 @@
 function profile {
   local shome="${_linkerd_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   PATH="$shome/bin:$PATH"
+
+  LINKERD_VERSION='0.7.0'
+  NAMERD_VERSION='0.7.0'
 }
 
 profile
