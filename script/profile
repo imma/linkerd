@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function profile {
+function _linkerd_profile {
   local shome="${_linkerd_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   PATH="$shome/bin:$PATH"
 
@@ -8,4 +8,4 @@ function profile {
   NAMERD_VERSION='0.7.1'
 }
 
-profile
+_linkerd_profile
