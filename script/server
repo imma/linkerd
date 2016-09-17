@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function server {
-  local shome="${_linkerd_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
   if [[ "$#" == 0 ]]; then
