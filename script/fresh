@@ -4,13 +4,15 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if [[ -x "$(which linkerd 2>/dev/null || true)" ]]; then
-    if [[ -x "$(which namerd 2>/dev/null || true)" ]]; then
-      return 0
-    fi
+  if [[ "$($shome/script/version | jq -r '.linkerd')" != "$LINKERD_VERSION" ]]; then
+    return 1
   fi
 
-  return 1
+  if [[ "$($shome/script/version | jq -r '.namerd')" != "$NAMERD_VERSION" ]]; then
+    return 1
+  fi
+
+  return 0
 }
 
-source sub "$BASH_SOURCE" "$@"
+source sub "$0" "$@"
