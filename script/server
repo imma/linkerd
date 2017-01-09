@@ -10,7 +10,7 @@ function server {
 
   case "${1:-}" in
     default)
-      exec linkerd "$shome/config/linkerd.yaml"
+      exec linkerd "/config/linkerd/linkerd.yaml"
       ;;
     *)
       echo "ERROR: unknown server command: ${1:-/not-supplied/}" 1>&2
