@@ -7,21 +7,13 @@ function bootstrap {
   local fnm_linkerd="linkerd-${LINKERD_VERSION}-exec"
   local url_linkerd="https://github.com/BuoyantIO/linkerd/releases/download/${LINKERD_VERSION}/$fnm_linkerd"
 
-  local fnm_namerd="namerd-${NAMERD_VERSION}-exec"
-  local url_namerd="https://github.com/BuoyantIO/linkerd/releases/download/${NAMERD_VERSION}/$fnm_namerd"
-
   cache curl "$fnm_linkerd" "$url_linkerd"
-  cache curl "$fnm_namerd" "$url_namerd"
 
   mkdir -p "$shome/vendor"
 
   rsync -ia "${BASEBOX_CACHE}/curl/$fnm_linkerd" "$shome/vendor/"
   chmod 755 "$shome/vendor/$fnm_linkerd"
   ln -nfs "../vendor/$fnm_linkerd" "$shome/bin/linkerd"
-
-  rsync -ia "${BASEBOX_CACHE}/curl/$fnm_namerd" "$shome/vendor/"
-  chmod 755 "$shome/vendor/$fnm_namerd"
-  ln -nfs "../vendor/$fnm_namerd" "$shome/bin/namerd"
 }
 
 bootstrap
