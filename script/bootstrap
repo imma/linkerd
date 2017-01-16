@@ -11,7 +11,7 @@ function bootstrap {
 
   mkdir -p "$shome/vendor"
 
-  rsync -ia "${BASEBOX_CACHE}/curl/$fnm_linkerd" "$shome/vendor/"
+  rsync -ia "/data/cache/curl/$fnm_linkerd" "$shome/vendor/"
   chmod 755 "$shome/vendor/$fnm_linkerd"
   ln -nfs "../vendor/$fnm_linkerd" "$shome/bin/linkerd"
 }
