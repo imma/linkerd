@@ -5,7 +5,6 @@ function _linkerd_profile {
   PATH="$shome/bin:$PATH"
 
   LINKERD_VERSION='0.8.6'
-  NAMERD_VERSION='0.8.6'
 }
 
 _linkerd_profile
