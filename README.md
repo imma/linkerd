@@ -1,1 +1,1 @@
-Visit http://defn.sh/linkerd/ or open `docs/index.html`
+content/linkerd.md
